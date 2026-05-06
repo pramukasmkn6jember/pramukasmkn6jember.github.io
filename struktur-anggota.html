@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Anggota | Pramuka SMK Negeri 6 Jember</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        .members-section {
+            padding: 80px 20px 60px;
+            background: #f9f9f9;
+        }
+
+        .members-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .members-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .members-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .members-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .members-count {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .members-count strong {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .member-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .member-card h3 {
+            color: var(--primary-color);
+            margin: 15px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .member-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .members-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .member-card {
+                padding: 15px;
+            }
+
+            .member-icon {
+                font-size: 2rem;
+            }
+
+            .member-card h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="WhatsApp_Image_2026-04-07_at_10.59.13-removebg-preview (1).png" alt="Logo Pramuka smkn 6 jember">
+                <img src="Untitled_design-removebg-preview (1) copy.png" alt="Logo smkn 6 jember">
+                <div class="logo-divider"></div>
+                <div class="logo-text">
+                    <span class="scout-title">PRAMUKA</span>
+                    <span class="school-title">SMKN 6 JEMBER</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="page praskanam.html">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang</a></li>
+                    <li><a href="visi.html">Visi Misi</a></li>
+                    <li><a href="struktur.html">Struktur</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="members-section">
+        <div class="members-container">
+            <a href="tentang.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+
+            <div class="members-header">
+                <h1>Struktur Anggota Pramuka</h1>
+                <p>Gugus Depan SMKN 6 Jember</p>
+                <div class="members-count">
+                    <strong id="totalMembers">0+</strong> Anggota Aktif
+                </div>
+            </div>
+
+            <div class="members-grid" id="membersGrid">
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>CHIKA MEILANI DWI SUPRIYANI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ZASKIA RIZQI RAMADHANI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ANANDA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>RULITA YOLANDA PUSPITASARI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>NOKIA PUSPITASARI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ILMI FITRIATUL HASANAH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>CITRA APRILIA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD ILHAM A</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ROY BAGUS SAPUTRA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>HUMAIRA IZZA FIRAMA DHANI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SYAIFUL ARIFIN</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AIRILLA SAFIRANDA BALQIS</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>BILQIS AZALILA NINGRUB</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>CHERYL ANASTASYA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>DWI INTAN MAULIDA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AFIN AULYA PUTRI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>HADINA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ALISATUL NING H</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD WAFAA AL KH.</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>TARAVINA HASIVAH ANUNG W.</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SITI JAHROTUN NISA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>PUTRI AYUKEYSA MINARDI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD ARFAN MAULANA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MMUHAMMAD WILDAN</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AHMAD VALENTINO</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SYAHRULI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>RIDWAN MAULANA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AMELIYA FINURIL</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>KARTIKA RAHMAWATI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUTIARA DEWI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD HILMI ALFARIZI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>DINDA NOVI SABILA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD REHAN R</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>INTAN TRI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AHMAD DENIS SAPUTRA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AINUR RACHMA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ANIS FEBRIANI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ARDIANA RIZKA. F</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>ARGA NESYA APRILIA RAHMAN</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>AURELLIYA AYU SETIYANINGRUM</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>DELVINA MUNTIATUL LATIFA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>DEVICHA CAHYA N.P</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>FADILATUS SHOLEH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>HILYATUN NAFISA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>IMROATUS SHOLEHA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>KAMILATUN NASIHAH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MERDA TRI INDAH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>MUHAMMAD ANAS FAHRULI</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>NADIFATUL HUMAIROH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>NUR THALITA SYAFA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>RATIH NOVITA AMELIA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SAHILA SALSABELA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SHERILIA EKA SUDRAJAT</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>SOFIA NURUL HIKMAH</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>TANIA PUTRI MAREZA</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>VANO DWI PANGESTU</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>WULAN FITRI RAHAYU</h3><p>Penegak</p></div>
+                <div class="member-card"><div class="member-icon"><i class="fas fa-user-circle"></i></div><h3>YULI</h3><p>Penegak</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <img src="WhatsApp_Image_2026-04-07_at_10.59.13-removebg-preview (1).png" alt="Logo Pramuka smkn 6 jember">
+                    <img src="Untitled_design-removebg-preview (1).png" alt="Logo SMKN 6 Jember">
+                    <p>Jl. PB. Sudirman No. 114, Jember, Jawa Timur. Mencetak generasi unggul berlandaskan iman dan takwa.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="page praskanam.html">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="visi.html">Visi Misi</a></li>
+                        <li><a href="struktur.html">Struktur</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-icons">
+                        <a href="https://whatsapp.com/channel/0029Vb6otL5ICVftvg0CJ12y" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://instagram.com/pramukasmkn6jember" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="https://tiktok.com/@pramukasmkn6jember" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pramuka SMK Negeri 6 Jember. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load member count from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const statsData = JSON.parse(localStorage.getItem('pramukaStats'));
+            if (statsData) {
+                document.getElementById('totalMembers').textContent = statsData.activeMembers + '+';
+            }
+        });
+    </script>
+</body>
+</html>

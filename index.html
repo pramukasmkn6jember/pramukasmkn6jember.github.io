@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pramuka SMK Negeri 6 Jember | Berkarakter & Inovatif</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="WhatsApp_Image_2026-04-07_at_10.59.13-removebg-preview (1).png" alt="Logo Pramuka smkn 6 jember">
+                <img src="Untitled_design-removebg-preview (1) copy.png" alt="Logo smkn 6 jember">
+                <div class="logo-divider"></div>
+                <div class="logo-text">
+                    <span class="scout-title">PRAMUKA</span>
+                    <span class="school-title">SMKN 6 JEMBER</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" class="active">Beranda</a></li>
+                    <li><a href="tentang.html">Tentang</a></li>
+                    <li><a href="visi.html">Visi Misi</a></li>
+                    <li><a href="struktur.html">Struktur</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Sejarah</a>
+                        <div class="dropdown-content">
+                            <a href="sejarah-pramuka.html">Sejarah Pramuka</a>
+                            <a href="sejarah-kopraskanam.html">Sejarah Kopraskanam</a>
+                        </div>
+                    </li>
+                    <li><a href="admin-panel.html">Admin</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-wrapper">
+                <h1 class="fade-in">Satyaku Kudarmakan, Darmaku Kubaktikan</h1>
+                <div class="visitor-card fade-in delay-3">
+                    <div class="visitor-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="visitor-info">
+                        <p class="visitor-label">Pengunjung</p>
+                        <p class="visitor-count" id="visitor-count">0</p>
+                    </div>
+                </div>
+                <p class="hero-subtext fade-in delay-2">
+                    Membentuk generasi awalnya juga agar setiap siswa siap berkarya dan berkontribusi.
+                </p>
+                <div class="hero-btns fade-in delay-3">
+                    <a href="tentang.html" class="btn btn-primary">Selengkapnya</a>
+                    <a href="#contact" class="btn btn-outline">Gabung Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section fade-in delay-4">
+        <div class="container">
+            <div class="section-header">
+                <h2>Berita Terbaru</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="news-grid" id="newsContainerHome">
+                <div class="empty-news">
+                    <i class="fas fa-newspaper"></i>
+                    <p>Belum ada berita.</p>
+                </div>
+            </div>
+
+            <div class="news-btn-container">
+                <a href="berita.html" class="btn btn-primary">Lihat Semua Berita</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div class="footer-info">
+                    <img src="WhatsApp_Image_2026-04-07_at_10.59.13-removebg-preview (1).png" alt="Logo Pramuka smkn 6 jember">
+                    <img src="Untitled_design-removebg-preview (1).png" alt="Logo SMKN 6 Jember">
+                    <p>Jl. PB. Sudirman No. 114, Jember, Jawa Timur. Mencetak generasi unggul berlandaskan iman dan takwa.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="tentang.html">Tentang</a></li>
+                        <li><a href="visi.html">Visi Misi</a></li>
+                        <li><a href="struktur.html">Struktur</a></li>
+                        <li><a href="berita.html">Berita</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-icons">
+                        <a href="https://wa.me/6281234567890"  target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                        <a href="https://instagram.com/pramukasmkn6jember" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="https://tiktok.com/@pramukasmkn6jember" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pramuka SMK Negeri 6 Jember. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load berita terbaru dari localStorage untuk halaman beranda (max 3 items)
+        function loadHomeNews() {
+            const newsData = JSON.parse(localStorage.getItem('pramukaNews')) || [];
+            const newsContainer = document.getElementById('newsContainerHome');
+
+            if (newsData.length === 0) {
+                newsContainer.innerHTML = `
+                    <div class="empty-news">
+                        <i class="fas fa-newspaper"></i>
+                        <p>Belum ada berita.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Ambil hanya 3 berita pertama
+            const limitedNews = newsData.slice(0, 3);
+
+            newsContainer.innerHTML = limitedNews.map((news, index) => `
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="${news.image}" alt="${news.title}">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="fas fa-calendar"></i>
+                            ${new Date(news.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <a href="detail-berita.html?id=${index}" class="read-more-btn">
+                            Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Jalankan saat DOM sudah siap
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadHomeNews);
+        } else {
+            loadHomeNews();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Pramuka SMK Negeri 6 Jember</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffd000 0%, #8a5c2b 50%, #ffd000 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .admin-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .admin-header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0;
+        }
+
+        .admin-header h1 {
+            color: #62482b;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .admin-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .admin-form {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3a2c20;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #a97d52;
+            box-shadow: 0 0 0 3px rgba(169, 125, 82, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit {
+            background: #62482b;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #3a2c20;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(98, 72, 43, 0.3);
+        }
+
+        .btn-reset {
+            background: #e0e0e0;
+            color: #3a2c20;
+        }
+
+        .btn-reset:hover {
+            background: #d0d0d0;
+        }
+
+        .btn-back {
+            background: #a97d52;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #8a5c2b;
+        }
+
+        .preview-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .preview-title {
+            color: #3a2c20;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .image-preview {
+            width: 200px;
+            height: 150px;
+            border-radius: 5px;
+            margin-top: 10px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .news-list {
+            margin-top: 30px;
+        }
+
+        .news-list h3 {
+            color: #3a2c20;
+            margin-bottom: 15px;
+        }
+
+        .news-item {
+            background: #f9f7f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-item-info h4 {
+            color: #3a2c20;
+            margin-bottom: 5px;
+        }
+
+        .news-item-info p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+
+            .news-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-edit"></i> Admin Panel</h1>
+            <p>Kelola berita dan konten website Pramuka</p>
+        </div>
+
+        <div class="admin-form">
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span>Berita berhasil ditambahkan!</span>
+            </div>
+
+            <h2 style="color: #3a2c20; margin-bottom: 20px;">Update Anggota Aktif & Prestasi</h2>
+
+            <form id="statsForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="activeMembers">Jumlah Anggota Aktif *</label>
+                        <input type="number" id="activeMembers" placeholder="Contoh: 50" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="achievements">Jumlah Prestasi *</label>
+                        <input type="number" id="achievements" placeholder="Contoh: 12" min="0" required>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-save"></i> Simpan Data
+                    </button>
+                    <button type="reset" class="btn-reset">
+                        <i class="fas fa-redo"></i> Bersihkan
+                    </button>
+                </div>
+            </form>
+
+            <h2 style="color: #3a2c20; margin-bottom: 20px;">Tambah Berita Baru</h2>
+
+            <form id="newsForm">
+                <div class="form-group">
+                    <label for="title">Judul Berita *</label>
+                    <input type="text" id="title" placeholder="Masukkan judul berita" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Tanggal *</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Penulis</label>
+                        <input type="text" id="author" placeholder="Nama penulis (opsional)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="excerpt">Ringkasan Berita *</label>
+                    <textarea id="excerpt" placeholder="Ringkasan singkat berita (untuk preview)" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Konten Lengkap *</label>
+                    <textarea id="content" placeholder="Tulis konten berita lengkap di sini" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">URL Gambar *</label>
+                    <input type="text" id="image" placeholder="Contoh: https://example.com/image.jpg" required>
+                    <div class="image-preview" id="imagePreview">
+                        <i class="fas fa-image" style="font-size: 2rem; color: #ccc;"></i>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-plus"></i> Tambah Berita
+                    </button>
+                    <button type="reset" class="btn-reset">
+                        <i class="fas fa-redo"></i> Bersihkan
+                    </button>
+                    <button type="button" class="btn-back" onclick="window.location.href='page praskanam.html'">
+                        <i class="fas fa-arrow-left"></i> Kembali
+                    </button>
+                </div>
+            </form>
+
+            <div class="news-list" id="newsList"></div>
+        </div>
+    </div>
+
+    <script>
+        // ===============================
+        // Handle Stats Form (Anggota Aktif & Prestasi)
+        // ===============================
+        document.getElementById('statsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const statsData = {
+                activeMembers: document.getElementById('activeMembers').value,
+                achievements: document.getElementById('achievements').value
+            };
+
+            localStorage.setItem('pramukaStats', JSON.stringify(statsData));
+
+            // Show success message
+            alert('Data anggota aktif dan prestasi berhasil disimpan!');
+
+            // Reset form
+            this.reset();
+        });
+
+        // Load existing stats data on page load
+        window.addEventListener('load', function() {
+            const statsData = JSON.parse(localStorage.getItem('pramukaStats'));
+            if (statsData) {
+                document.getElementById('activeMembers').value = statsData.activeMembers || '';
+                document.getElementById('achievements').value = statsData.achievements || '';
+            }
+        });
+
+        // Set tanggal default ke hari ini
+        document.getElementById('date').valueAsDate = new Date();
+
+        // Preview gambar
+        document.getElementById('image').addEventListener('change', function() {
+            updateImagePreview();
+        });
+
+        document.getElementById('image').addEventListener('input', function() {
+            updateImagePreview();
+        });
+
+        function updateImagePreview() {
+            const imageUrl = document.getElementById('image').value;
+            const preview = document.getElementById('imagePreview');
+            if (imageUrl) {
+                preview.innerHTML = `<img src="${imageUrl}" alt="Preview" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-exclamation-circle\\' style=\\'font-size: 2rem; color: #ccc;\\'></i>'">`;
+            }
+        }
+
+        // Submit form
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const newsData = {
+                title: document.getElementById('title').value,
+                date: document.getElementById('date').value,
+                author: document.getElementById('author').value,
+                excerpt: document.getElementById('excerpt').value,
+                content: document.getElementById('content').value,
+                image: document.getElementById('image').value
+            };
+
+            // Get existing news from localStorage
+            let allNews = JSON.parse(localStorage.getItem('pramukaNews')) || [];
+            allNews.unshift(newsData);
+            localStorage.setItem('pramukaNews', JSON.stringify(allNews));
+
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.style.display = 'flex';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 3000);
+
+            // Reset form
+            this.reset();
+            document.getElementById('date').valueAsDate = new Date();
+            document.getElementById('imagePreview').innerHTML = '<i class="fas fa-image" style="font-size: 2rem; color: #ccc;"></i>';
+
+            // Refresh news list
+            displayNewsList();
+        });
+
+        // Display news list
+        function displayNewsList() {
+            const allNews = JSON.parse(localStorage.getItem('pramukaNews')) || [];
+            const newsList = document.getElementById('newsList');
+
+            if (allNews.length === 0) {
+                newsList.innerHTML = '';
+                return;
+            }
+
+            let html = '<h3><i class="fas fa-list"></i> Berita yang Sudah Ditambahkan</h3>';
+            allNews.forEach((news, index) => {
+                html += `
+                    <div class="news-item">
+                        <div class="news-item-info">
+                            <h4>${news.title}</h4>
+                            <p>
+                                <i class="fas fa-calendar"></i> 
+                                ${new Date(news.date).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                                ${news.author ? ` | <i class="fas fa-user"></i> ${news.author}` : ''}
+                            </p>
+                        </div>
+                        <button class="btn-delete" onclick="deleteNews(${index})">
+                            <i class="fas fa-trash"></i> Hapus
+                        </button>
+                    </div>
+                `;
+            });
+            newsList.innerHTML = html;
+        }
+
+        // Delete news
+        function deleteNews(index) {
+            if (confirm('Apakah Anda yakin ingin menghapus berita ini?')) {
+                let allNews = JSON.parse(localStorage.getItem('pramukaNews')) || [];
+                allNews.splice(index, 1);
+                localStorage.setItem('pramukaNews', JSON.stringify(allNews));
+                displayNewsList();
+            }
+        }
+
+        // Load news list on page load
+        displayNewsList();
+    </script>
+
+</body>
+</html>
